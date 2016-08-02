@@ -1,7 +1,8 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import App from './App';
+import App from './components/App';
 import './css/index.css';
+import './css/Grid.css';
 
 ReactDOM.render(
   <App />,
