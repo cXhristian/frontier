@@ -1,6 +1,7 @@
-import React from 'react';
-import '../css/Article.css';
+import React, { PropTypes } from 'react';
 import Resizable from 'react-resizable-box';
+import articleImage from '../images/article.jpg';
+import '../css/Article.css';
 
 class Article extends React.Component {
   constructor(props) {
@@ -13,13 +14,13 @@ class Article extends React.Component {
     console.log(direction, styleSize, clientSize, delta);
   }
   render() {
-    const { height, width, image, title } = this.props;
+    const { height, width, title } = this.props;
     return (
       <Resizable onResizeStop={ this.onResizeStop }
         isResizable={ { right: true, bottom: true, bottomRight: true } }
         grid={ this.grid } height={ height } width={ width } customClass="Article">
           <div className="Article-image" >
-            <img src={ image } alt="" />
+            <img src={ articleImage } alt="" />
           </div>
           <h3 className="Article-title">{ title }</h3>
       </Resizable>
@@ -28,9 +29,10 @@ class Article extends React.Component {
 }
 
 Article.propTypes = {
-  image: React.PropTypes.string.isRequired,
-  title: React.PropTypes.string.isRequired,
-  width: React.PropTypes.number.isRequired
+  image: PropTypes.string,
+  title: PropTypes.string.isRequired,
+  width: PropTypes.number.isRequired,
+  height: PropTypes.number.isRequired
 };
 
 export default Article;

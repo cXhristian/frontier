@@ -1,17 +1,7 @@
 import React, { Component } from 'react';
 import Articles from './Articles';
-import articleImage from '../images/article.jpg';
+import articleGroups from '../fixtures/articles.json';
 import '../css/App.css';
-
-const articles = [];
-for(let i = 0; i < 10; i++) {
-  articles.push({
-    title: `Article ${i + 1}`,
-    image: articleImage,
-    width: 16 * 16,
-    height: 16 * 12
-  });
-}
 
 class App extends Component {
   render() {
@@ -20,7 +10,7 @@ class App extends Component {
         <div className="App-header">
           <h2>Frontier</h2>
         </div>
-        <Articles articles={ articles } />
+        <Articles articleGroups={ articleGroups } />
       </div>
     );
   }
