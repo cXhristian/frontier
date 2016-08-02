@@ -18,11 +18,11 @@ class Articles extends React.Component {
     return (
       <section className="Articles">
         {
-          chunks.map(articles => (
-            <ArticleSection>
+          chunks.map((articles, i) => (
+            <ArticleSection key={ i }>
               {
-                articles.map(article => (
-                  <Article { ...article } />
+                articles.map((article, i) => (
+                  <Article key={ i } { ...article } />
                 ))
               }
             </ArticleSection>

@@ -1,10 +1,21 @@
 .Article {
   padding: 1rem;
+  border: 5px solid #ccc;
+  border-radius: 10px;
+  float: left;
+  display: inline-flex;
+  flex-direction: column;
 }
 
 .Article-image {
-  max-width: 100%;
+  overflow: hidden;
+  width: 100%;
   height: auto;
+  flex: 1;
+}
+
+.Article-image img {
+  max-width: 100%;
 }
 
 .Article-title {

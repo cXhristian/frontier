@@ -8,7 +8,8 @@ for(let i = 0; i < 10; i++) {
   articles.push({
     title: `Article ${i + 1}`,
     image: articleImage,
-    width: 6
+    width: 16 * 16,
+    height: 16 * 12
   });
 }
 
