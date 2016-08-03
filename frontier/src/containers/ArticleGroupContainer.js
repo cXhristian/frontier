@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import ArticleGroup from '../components/ArticleGroup';
-import Article from '../components/Article';
+import ArticleContainer from '../containers/ArticleContainer';
 
 class ArticleGroupContainer extends Component {
   render() {
@@ -9,7 +9,7 @@ class ArticleGroupContainer extends Component {
       <ArticleGroup>
         {
           this.props.articles.map((article, i) => (
-            <Article key={ i } { ...article } />
+            <ArticleContainer key={ i } { ...article } />
           ))
         }
       </ArticleGroup>
