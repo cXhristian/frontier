@@ -1,10 +1,10 @@
 import { RESIZE_ARTICLE } from '../actions';
 
-export const resizeArticle = (id, height, width) => {
+export const resizeArticle = (id, width, height) => {
   return {
     type: RESIZE_ARTICLE,
     payload: {
-      id, height, width
+      id, width, height
     }
   }
 }

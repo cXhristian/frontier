@@ -1,4 +1,6 @@
 import React from 'react';
+import { connect } from 'react-redux';
+import { resizeArticle } from '../actionCreators';
 import Resizable from 'react-resizable-box';
 import Article from '../components/Article';
 
@@ -10,18 +12,21 @@ class ArticleContainer extends React.Component {
     this.onResizeStop = this.onResizeStop.bind(this);
   }
   onResizeStop(direction, styleSize, clientSize, delta) {
-    console.log(direction, styleSize, clientSize, delta);
+    const { width, height } = styleSize;
+    const { dispatch, id } = this.props;
+    dispatch(resizeArticle(id, width, height));
   }
+
   render() {
-    const { height, width } = this.props;
+    const { width, height } = this.props;
     return (
       <Resizable onResizeStop={ this.onResizeStop }
         isResizable={ { right: true, bottom: true, bottomRight: true } }
-        grid={ this.grid } height={ height } width={ width } customClass="Article-wrapper">
+        grid={ this.grid } width={ width } height={ height } customClass="Article-wrapper">
           <Article { ...this.props } />
       </Resizable>
     )
   }
 }
 
-export default ArticleContainer;
+export default connect()(ArticleContainer);
