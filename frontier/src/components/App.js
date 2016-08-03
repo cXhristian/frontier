@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
-import Articles from './Articles';
-import articleGroups from '../fixtures/articles.json';
+import ArticlesContainer from '../containers/ArticlesContainer';
 import '../css/App.css';
 
 class App extends Component {
@@ -10,7 +9,7 @@ class App extends Component {
         <div className="App-header">
           <h2>Frontier</h2>
         </div>
-        <Articles articleGroups={ articleGroups } />
+        <ArticlesContainer />
       </div>
     );
   }
