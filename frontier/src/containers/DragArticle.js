@@ -8,7 +8,6 @@ const articleSource = {
   beginDrag(props) {
     return {
       id: props.id,
-      index: props.index,
       groupId: props.groupId
     }
   }
@@ -20,6 +19,7 @@ const articleTarget = {
     const { id: hoverId, groupId: toGroup, index, dispatch } = props;
     if(draggedId !== hoverId) {
       dispatch(moveArticle(draggedId, fromGroup, toGroup, index));
+      monitor.getItem().groupId = toGroup;
     }
   }
 }
