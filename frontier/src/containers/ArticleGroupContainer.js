@@ -23,7 +23,7 @@ class ArticleGroupContainer extends Component {
 const mapStateToProps = ({ articles, articleGroups }, { id }) => {
   return {
     groupId: id,
-    articles: articleGroups[id].map(articleId => articles[articleId])
+    articles: articleGroups.get(String(id)).map(articleId => articles[articleId])
   };
 }
 
