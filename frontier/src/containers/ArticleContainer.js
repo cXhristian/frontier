@@ -1,6 +1,7 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import { resizeArticle } from '../actionCreators';
+import DragArticle from './DragArticle';
 import Resizable from 'react-resizable-box';
 import Article from '../components/Article';
 
@@ -19,12 +20,14 @@ class ArticleContainer extends React.Component {
   }
 
   render() {
-    const { width, height } = this.props;
+    const { width, height, id, groupId, index } = this.props;
     return (
       <Resizable onResizeStop={ this.onResizeStop }
         isResizable={ this.resizableDirections }
         grid={ this.grid } width={ width } height={ height }>
+        <DragArticle id={ id } index={ index } groupId={ groupId } >
           <Article { ...this.props } />
+        </DragArticle>
       </Resizable>
     )
   }

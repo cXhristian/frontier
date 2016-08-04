@@ -11,6 +11,11 @@
   flex-direction: column;
 }
 
+.Article-draggable {
+  height: 100%;
+  cursor: move;
+}
+
 .Article-image {
   overflow: hidden;
   width: 100%;

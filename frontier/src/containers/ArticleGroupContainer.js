@@ -10,7 +10,8 @@ class ArticleGroupContainer extends Component {
         {
           this.props.articles.map((article, i) => (
             <div key={ i } className="Article-wrapper">
-              <ArticleContainer { ...article } />
+              <ArticleContainer groupId={ this.props.groupId }
+                index={ i } { ...article } />
             </div>
           ))
         }
@@ -21,6 +22,7 @@ class ArticleGroupContainer extends Component {
 
 const mapStateToProps = ({ articles, articleGroups }, { id }) => {
   return {
+    groupId: id,
     articles: articleGroups[id].map(articleId => articles[articleId])
   };
 }
