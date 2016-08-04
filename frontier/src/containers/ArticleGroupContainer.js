@@ -9,7 +9,9 @@ class ArticleGroupContainer extends Component {
       <ArticleGroup>
         {
           this.props.articles.map((article, i) => (
-            <ArticleContainer key={ i } { ...article } />
+            <div key={ i } className="Article-wrapper">
+              <ArticleContainer { ...article } />
+            </div>
           ))
         }
       </ArticleGroup>

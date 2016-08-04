@@ -9,6 +9,7 @@ class ArticleContainer extends React.Component {
     super(props);
 
     this.grid = [16, 16];
+    this.resizableDirections = { right: true, bottom: true, bottomRight: true };
     this.onResizeStop = this.onResizeStop.bind(this);
   }
   onResizeStop(direction, styleSize, clientSize, delta) {
@@ -21,8 +22,8 @@ class ArticleContainer extends React.Component {
     const { width, height } = this.props;
     return (
       <Resizable onResizeStop={ this.onResizeStop }
-        isResizable={ { right: true, bottom: true, bottomRight: true } }
-        grid={ this.grid } width={ width } height={ height } customClass="Article-wrapper">
+        isResizable={ this.resizableDirections }
+        grid={ this.grid } width={ width } height={ height }>
           <Article { ...this.props } />
       </Resizable>
     )
