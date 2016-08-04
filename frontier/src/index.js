@@ -1,14 +1,16 @@
 import React from 'react';
 import { render } from 'react-dom';
 import { Provider} from 'react-redux';
-import { createStore } from 'redux';
+import { applyMiddleware, createStore } from 'redux';
 import reducers from './reducers';
 import App from './components/App';
 import initialState from './fixtures/articles.json';
+import createLogger from 'redux-logger';
 import './css/index.css';
 import './css/Grid.css';
 
-const store = createStore(reducers, initialState);
+const logger = createLogger();
+const store = createStore(reducers, initialState, applyMiddleware(logger));
 
 render(
   <Provider store={ store }>
