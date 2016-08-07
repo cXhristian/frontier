@@ -55,6 +55,8 @@ class DragArticle extends Component {
   }
 }
 
+// eslint-disable-next-line
 DragArticle = DropTarget(ItemTypes.ARTICLE, articleTarget, collectTarget)(DragArticle);
+// eslint-disable-next-line
 DragArticle = DragSource(ItemTypes.ARTICLE, articleSource, collectSource)(DragArticle);
 export default connect()(DragArticle);

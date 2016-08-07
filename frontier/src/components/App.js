@@ -17,4 +17,5 @@ class App extends Component {
   }
 }
 
+// eslint-disable-next-line
 export default DragDropContext(HTML5Backend)(App);
