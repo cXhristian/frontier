@@ -15,7 +15,7 @@ const articleSource = {
 };
 
 const articleTarget = {
-  hover(props, monitor, component) {
+  drop(props, monitor, component) {
     const { id: draggedId, groupId: fromGroup } = monitor.getItem();
     const { id: hoverId, groupId: toGroup, index, dispatch } = props;
     if(draggedId === hoverId) {
