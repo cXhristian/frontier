@@ -16,6 +16,10 @@
   cursor: move;
 }
 
+.Article--dragging {
+  opacity: 0.3;
+}
+
 .Article-image {
   overflow: hidden;
   width: 100%;
