@@ -17,10 +17,12 @@ const articleTarget = {
   hover(props, monitor, component) {
     const { id: draggedId, groupId: fromGroup } = monitor.getItem();
     const { id: hoverId, groupId: toGroup, index, dispatch } = props;
-    if(draggedId !== hoverId) {
-      dispatch(moveArticle(draggedId, fromGroup, toGroup, index));
-      monitor.getItem().groupId = toGroup;
+    if(draggedId === hoverId) {
+      return;
     }
+
+    dispatch(moveArticle(draggedId, fromGroup, toGroup, index ));
+    monitor.getItem().groupId = toGroup;
   }
 }
 
