@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { DragSource, DropTarget } from 'react-dnd';
 import classNames from 'classnames';
+import Icon from '../components/Icon';
 import { moveArticle } from '../actionCreators';
 import * as ItemTypes from '../constants/ItemTypes';
 
@@ -36,19 +37,21 @@ const collectTarget = (connect, monitor) => {
 const collectSource = (connect, monitor) => {
   return {
     connectDragSource: connect.dragSource(),
+    connectDragPreview: connect.dragPreview(),
     isDragging: monitor.isDragging()
   }
 }
 
 class DragArticle extends Component {
   render() {
-    const { connectDragSource, connectDropTarget, isDragging } = this.props;
+    const { connectDragSource, connectDragPreview, connectDropTarget, isDragging } = this.props;
     const dragClass = classNames({
       'Article-draggable': true,
       'Article--dragging': isDragging
     })
-    return connectDropTarget(connectDragSource(
+    return connectDropTarget(connectDragPreview(
       <div className={ dragClass } >
+        { connectDragSource(<span><Icon icon="arrows" /></span>) }
         { this.props.children }
       </div>
     ))
