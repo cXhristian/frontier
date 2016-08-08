@@ -5,6 +5,7 @@ import classNames from 'classnames';
 import Icon from '../components/Icon';
 import { moveArticle } from '../actionCreators';
 import * as ItemTypes from '../constants/ItemTypes';
+import Article from '../components/Article';
 
 const articleSource = {
   beginDrag(props) {
@@ -52,7 +53,7 @@ class DragArticle extends Component {
     return connectDropTarget(connectDragPreview(
       <div className={ dragClass } >
         { connectDragSource(<span><Icon name="arrows" /></span>) }
-        { this.props.children }
+        <Article { ...this.props } />
       </div>
     ))
   }
