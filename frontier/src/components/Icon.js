@@ -1,11 +1,12 @@
 import React, { PropTypes } from 'react';
 import classNames from 'classnames';
 
-const Icon = ({ fixedWidth, icon, size }) => {
+const Icon = ({ className, fixedWidth, name, size }) => {
   const iconClass = classNames({
+    [className]: className,
     'Icon': true,
     'fa': true,
-    [`fa-${icon}`]: true,
+    [`fa-${name}`]: true,
     [`fa-${size}`]: size,
     'fa-fw': fixedWidth
   });
@@ -13,8 +14,9 @@ const Icon = ({ fixedWidth, icon, size }) => {
 };
 
 Icon.propTypes = {
+  className: PropTypes.string,
   fixedWidth: PropTypes.bool,
-  icon: PropTypes.string.isRequired,
+  name: PropTypes.string.isRequired,
   size: PropTypes.string
 };
 
