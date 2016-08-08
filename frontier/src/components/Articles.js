@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { PropTypes } from 'react';
 import ArticleGroupContainer from '../containers/ArticleGroupContainer';
 import '../css/Articles.css';
 
@@ -13,5 +13,9 @@ const Articles = ({ articleGroups }) => {
     </section>
   );
 };
+
+Articles.propTypes = {
+  articleGroups: PropTypes.arrayOf(PropTypes.number).isRequired
+}
 
 export default Articles;
