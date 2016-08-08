@@ -4,4 +4,5 @@
   width: 100%;
   clear: both;
   float: left;
+  min-height: 10rem;
 }
