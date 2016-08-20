@@ -37,7 +37,15 @@
   max-width: 100%;
 }
 
-.Article-title {
+
+.Article-title, .Article-title-edit input {
   margin: 1rem 0 0 0;
   font-size: 2rem;
+  font-weight: bold;
+}
+
+.Article-title-edit input {
+  border: none;
+  width: 100%;
+  padding: 0;
 }

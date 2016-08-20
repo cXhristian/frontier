@@ -1,4 +1,4 @@
-import { MOVE_ARTICLE, RESIZE_ARTICLE, ADD_ARTICLE_TO_GROUP } from '../actions';
+import { EDIT_TITLE, MOVE_ARTICLE, RESIZE_ARTICLE, ADD_ARTICLE_TO_GROUP } from '../actions';
 
 export const resizeArticle = (id, width, height) => {
   return {
@@ -8,6 +8,15 @@ export const resizeArticle = (id, width, height) => {
     }
   }
 }
+
+export const editTitle = (id, title) => {
+  return {
+    type: EDIT_TITLE,
+    payload: {
+      id, title
+    }
+  };
+};
 
 export const moveArticle = (id, fromGroup, toGroup, index) => {
   return {

@@ -1,4 +1,4 @@
-import { RESIZE_ARTICLE } from '../actions';
+import { EDIT_TITLE, RESIZE_ARTICLE } from '../actions';
 
 const article = (state = {}, action) => {
   switch (action.type) {
@@ -7,6 +7,12 @@ const article = (state = {}, action) => {
       return Object.assign({}, state, {
         width, height
       })
+    case EDIT_TITLE: {
+      const { title } = action.payload;
+      return Object.assign({}, state, {
+        title
+      });
+    }
     default:
 
   }
@@ -15,6 +21,7 @@ const article = (state = {}, action) => {
 const articles = (state = {}, action) => {
   switch(action.type) {
     case RESIZE_ARTICLE:
+    case EDIT_TITLE: {
       const { id } = action.payload;
       if(state[id] === undefined) {
         return state;
@@ -22,6 +29,7 @@ const articles = (state = {}, action) => {
       return Object.assign({}, state, {
         [id]: article(state[id], action)
       });
+    }
     default:
       return state;
   }
