@@ -6,8 +6,8 @@ const Articles = ({ articleGroups }) => {
   return (
     <section className="Articles">
       {
-        articleGroups.map(groupId => (
-          <ArticleGroupContainer key={ groupId } id={ groupId } />
+        articleGroups.map( (groupId, index) => (
+          <ArticleGroupContainer key={ groupId } id={ groupId } index={ index } />
         ))
       }
     </section>

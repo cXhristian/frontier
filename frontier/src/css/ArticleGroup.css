@@ -14,3 +14,13 @@
 .ArticleGroup--over .ArticleGroup {
   outline-color: #399ab7;
 }
+
+.ArticleGroup-handlebar {
+  height: 1.3rem;
+  cursor: move;
+  background-color: whitesmoke;
+}
+
+.ArticleGroup-wrapper {
+  float: left;
+}

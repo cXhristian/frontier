@@ -14,7 +14,7 @@ const article = (state = {}, action) => {
       });
     }
     default:
-
+      return state;
   }
 }
 
