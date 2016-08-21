@@ -1,0 +1,1 @@
+export const MOVE_ARTICLE_GROUP = 'MOVE_ARTICLE_GROUP';
