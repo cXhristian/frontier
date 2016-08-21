@@ -31,7 +31,8 @@ const articleTarget = {
 
 const collectTarget = (connect, monitor) => {
   return {
-    connectDropTarget: connect.dropTarget()
+    connectDropTarget: connect.dropTarget(),
+    isOver: monitor.isOver()
   }
 }
 
@@ -45,10 +46,11 @@ const collectSource = (connect, monitor) => {
 
 class DragArticle extends Component {
   render() {
-    const { connectDragSource, connectDragPreview, connectDropTarget, isDragging } = this.props;
+    const { connectDragSource, connectDragPreview, connectDropTarget, isDragging, isOver } = this.props;
     const dragClass = classNames({
       'Article-draggable': true,
-      'Article--dragging': isDragging
+      'Article--dragging': isDragging,
+      'Article--over': isOver
     })
     return connectDropTarget(connectDragPreview(
       <div className={ dragClass } >

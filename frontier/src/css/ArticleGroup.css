@@ -1,8 +1,16 @@
 .ArticleGroup {
-  outline: 1px dotted #000;
   margin-bottom: 1rem;
   width: 100%;
   clear: both;
   float: left;
   min-height: 10rem;
+  outline: 1px solid #dadada;
+}
+
+.ArticleGroup:hover {
+  outline-width: 2px;
+}
+
+.ArticleGroup--over .ArticleGroup {
+  outline-color: #399ab7;
 }

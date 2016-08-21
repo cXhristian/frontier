@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { DropTarget } from 'react-dnd';
 import { connect } from 'react-redux';
+import classNames from 'classnames';
 import * as ItemTypes from '../constants/ItemTypes';
 import ArticleGroup from '../components/ArticleGroup';
 import { addArticleToGroup } from '../actionCreators';
@@ -19,15 +20,19 @@ const groupTarget = {
 
 const collect = (connect, monitor) => {
   return {
-    connectDropTarget: connect.dropTarget()
+    connectDropTarget: connect.dropTarget(),
+    isOver: monitor.isOver({ shallow: true })
   }
 }
 
 class ArticleGroupContainer extends Component {
   render() {
-    const { connectDropTarget } = this.props;
+    const { connectDropTarget, isOver } = this.props;
+    const groupClass = classNames({
+      'ArticleGroup--over': isOver
+    })
     return connectDropTarget(
-      <div>
+      <div className={ groupClass }>
         <ArticleGroup { ...this.props } />
       </div>
     );

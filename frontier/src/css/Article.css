@@ -4,8 +4,6 @@
 
 .Article {
   padding: 1rem;
-  border: 5px solid #ccc;
-  border-radius: 10px;
   height: 100%;
   display: flex;
   flex-direction: column;
@@ -13,18 +11,30 @@
 
 .Article-draggable {
   height: 100%;
+  outline: 1px dotted #c7dde2;
 }
 
 .Article-draggable .Icon {
   position: absolute;
-  top: 0.5rem;
-  left: 0.5rem;
+  top: 0.125rem;
+  left: 0.125rem;
   cursor: move;
 }
 
 .Article--dragging {
   opacity: 0.3;
 }
+
+.Article--over {
+  outline-style: solid;
+  outline-color: #399ab7;
+}
+
+
+.Article-draggable:hover {
+  outline-color: #000;
+}
+
 
 .Article-image {
   overflow: hidden;
