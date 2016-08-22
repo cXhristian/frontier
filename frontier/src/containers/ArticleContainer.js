@@ -4,7 +4,7 @@ import { resizeArticle } from '../actionCreators';
 import DragArticle from './DragArticle';
 import Article from '../components/Article';
 import Resizable from 'react-resizable-box';
-import { MAX_WIDTH} from '../constants/layout';
+import { MAX_WIDTH, MIN_HEIGHT, MIN_WIDTH } from '../constants/layout';
 
 class ArticleContainer extends React.Component {
   constructor(props) {
@@ -27,6 +27,7 @@ class ArticleContainer extends React.Component {
       <Resizable onResizeStop={ this.onResizeStop }
         isResizable={ this.resizableDirections }
         grid={ this.grid } width={ width } height={ height }
+        minWidth={ MIN_WIDTH } minHeight={ MIN_HEIGHT }
         maxWidth={ MAX_WIDTH } >
         <DragArticle { ...this.props } />
       </Resizable>
