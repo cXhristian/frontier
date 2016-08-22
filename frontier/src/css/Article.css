@@ -16,7 +16,7 @@
   user-select: none;
 }
 
-.Article-draggable .Icon {
+.Article-draggable-icon {
   position: absolute;
   top: 0.125rem;
   left: 0.125rem;
@@ -50,15 +50,7 @@
 }
 
 
-.Article-title, .Article-title-edit input {
+.Article-title, .Article-title-edit input[type="text"] {
   margin: 1rem 0 0 0;
-  font-size: 2rem;
   font-weight: bold;
-}
-
-.Article-title-edit input {
-  border: none;
-  width: 100%;
-  padding: 0;
-  font-family: Helvetica, Arial, sans-serif;
 }

@@ -54,7 +54,7 @@ class DragArticle extends Component {
     })
     return connectDropTarget(connectDragPreview(
       <div className={ dragClass } >
-        { connectDragSource(<span><Icon name="arrows" /></span>) }
+        { connectDragSource(<span><Icon className="Article-draggable-icon" name="arrows" /></span>) }
         <Article { ...this.props } />
       </div>
     ))

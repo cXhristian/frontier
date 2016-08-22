@@ -8,9 +8,9 @@ const article = (state = {}, action) => {
         width, height
       })
     case EDIT_TITLE: {
-      const { title } = action.payload;
+      const { title, fontSize } = action.payload;
       return Object.assign({}, state, {
-        title
+        title, fontSize
       });
     }
     default:

@@ -9,11 +9,11 @@ export const resizeArticle = (id, width, height) => {
   }
 }
 
-export const editTitle = (id, title) => {
+export const editTitle = (id, title, fontSize) => {
   return {
     type: EDIT_TITLE,
     payload: {
-      id, title
+      id, title, fontSize
     }
   };
 };
