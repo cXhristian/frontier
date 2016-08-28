@@ -19,10 +19,16 @@
   height: 1.3rem;
   cursor: move;
   background-color: whitesmoke;
+  outline: 1px solid #e8e8e8;
+}
+
+.ArticleGroup-handlebar:hover {
+  background-color: #eaeaea;
 }
 
 .ArticleGroup-wrapper {
   float: left;
+  width: 100%;
 }
 
 .ArticleGroup--align-right .Article-wrapper {
