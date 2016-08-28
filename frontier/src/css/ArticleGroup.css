@@ -24,3 +24,7 @@
 .ArticleGroup-wrapper {
   float: left;
 }
+
+.ArticleGroup--align-right .Article-wrapper {
+  float: right;
+}

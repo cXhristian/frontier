@@ -116,6 +116,7 @@ const mapStateToProps = ({ articles, articleGroups }, { id }) => {
   const articlesInGroup = articleGroups[id].articles
     .map(articleId => articles[articleId]);
   return {
+    align: articleGroups[id].align,
     groupId: id,
     articles: articlesInGroup
   };

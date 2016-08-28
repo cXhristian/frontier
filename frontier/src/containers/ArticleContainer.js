@@ -12,7 +12,12 @@ class ArticleContainer extends React.Component {
 
     this.editMode = true;
     this.grid = [16, 16];
-    this.resizableDirections = { right: true, bottom: true, bottomRight: true };
+    if(this.props.align === 'left') {
+      this.resizableDirections = { right: true, bottom: true, bottomRight: true };
+    }
+    else {
+      this.resizableDirections = { left: true, bottom: true, bottomLeft: true };
+    }
     this.onResizeStop = this.onResizeStop.bind(this);
   }
   onResizeStop(direction, styleSize, clientSize, delta) {
