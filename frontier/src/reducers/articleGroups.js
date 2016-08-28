@@ -1,36 +1,67 @@
 import { MOVE_ARTICLE, ADD_ARTICLE_TO_GROUP } from '../actions';
 
-const removeFromGroup = (state, articleId, groupId) => {
-  const currentIndex = state.get(String(groupId)).indexOf(articleId);
-  return state.update(String(groupId), list => {
-    return list.delete(currentIndex);
-  });
+const removeFromArticles = (articles, index) => {
+  return [
+    ...articles.slice(0, index),
+    ...articles.slice(index + 1)
+  ];
+};
+
+const addToArticles = (articles, index, articleId) => {
+  return [
+    ...articles.slice(0, index),
+    articleId,
+    ...articles.slice(index)
+  ];
+}
+
+const articleGroup = (state = {}, action) => {
+  switch (action.type) {
+    case MOVE_ARTICLE: {
+      const { id: articleId, index: newIndex, fromGroup, toGroup } = action.payload;
+      let { articles } = state;
+      if(state.id === fromGroup) {
+        const currentIndex = articles.indexOf(articleId);
+        articles = removeFromArticles(articles, currentIndex);
+      }
+      if(state.id === toGroup) {
+        articles = addToArticles(articles, newIndex, articleId);
+      }
+      state = Object.assign({}, state, {
+        articles: articles
+      });
+      return state;
+    }
+    case ADD_ARTICLE_TO_GROUP: {
+      // TODO: Consider merging MOVE_ARTICLE and ADD_ARTICLE_TO_GROUP
+      const { articleId, fromGroup, toGroup } = action.payload;
+      let { articles } = state;
+      if(state.id === fromGroup) {
+        const currentIndex = articles.indexOf(articleId);
+        articles = removeFromArticles(articles, currentIndex);
+      }
+      if(state.id === toGroup) {
+        articles = addToArticles(articles, articles.length, articleId);
+      }
+      state = Object.assign({}, state, {
+        articles: articles
+      });
+      return state;
+    }
+    default:
+    return state;
+  }
 };
 
 const articleGroups = (state = {}, action) => {
-  let fromGroup;
-  let toGroup;
   switch(action.type) {
     case MOVE_ARTICLE:
-      const { id, index: newIndex } = action.payload;
-      fromGroup = action.payload.fromGroup;
-      toGroup = action.payload.toGroup;
-      state = removeFromGroup(state, id, fromGroup);
-      state = state.update(String(toGroup), list => {
-        return list.insert(newIndex, id);
-      });
-      return state;
     case ADD_ARTICLE_TO_GROUP:
-      const { articleId } = action.payload;
-      fromGroup = action.payload.fromGroup;
-      toGroup = action.payload.toGroup;
-      if(fromGroup) {
-        state = removeFromGroup(state, articleId, fromGroup);
-      }
-      state = state.update(String(toGroup), list => {
-        return list.push(articleId);
+      const { fromGroup, toGroup } = action.payload;
+      return Object.assign({}, state, {
+        [fromGroup]: articleGroup(state[fromGroup], action),
+        [toGroup]: articleGroup(state[toGroup], action)
       });
-      return state;
     default:
       return state;
   }

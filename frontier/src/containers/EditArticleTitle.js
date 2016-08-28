@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import onClickOutside from 'react-onclickoutside';
 import { editTitle } from '../actionCreators';
 import ArticleTitle from '../components/ArticleTitle';
 import Icon from '../components/Icon';

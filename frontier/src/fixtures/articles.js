@@ -45,7 +45,15 @@ export default {
   },
   "groupOrder": [1, 2],
   "articleGroups": {
-    1: [1, 2, 3],
-    2: [4, 5, 6]
+    1: {
+      "id": 1,
+      "articles": [1, 2, 3],
+      "align": "left"
+    },
+    2: {
+      "id": 2,
+      "articles": [4, 5, 6],
+      "align": "right"
+    }
   }
 };
