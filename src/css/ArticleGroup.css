@@ -9,6 +9,13 @@
 
 .ArticleGroup:hover {
   outline-width: 2px;
+  box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);
+}
+
+.ArticleGroup-wrapper:hover .ArticleGroup-handlebar {
+  display: block;
+  animation-name: inflate;
+  animation-duration: 0.2s;
 }
 
 .ArticleGroup--over .ArticleGroup {
@@ -16,10 +23,16 @@
 }
 
 .ArticleGroup-handlebar {
-  height: 1.3rem;
+  display: none;
+  width: 100%;
+  height: 1.5rem;
+  top: -1.5rem;
   cursor: move;
+  box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 0px 2px rgba(0,0,0,0.23);   
   background-color: whitesmoke;
-  outline: 1px solid #e8e8e8;
+  outline: 2px solid #e8e8e8;
+  position: absolute;
+  z-index: 4;
 }
 
 .ArticleGroup-handlebar:hover {
@@ -29,8 +42,15 @@
 .ArticleGroup-wrapper {
   float: left;
   width: 100%;
+  position: relative;
 }
 
 .ArticleGroup--align-right .Article-wrapper {
   float: right;
+}
+
+/* Animation  */
+@keyframes inflate {
+    from { height: 0rem; top:0rem; }
+    to { height: 1.5rem; top: -1.5rem; }
 }
