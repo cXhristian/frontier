@@ -1,14 +1,13 @@
 import React from 'react'
 import { ArticlePropTypes } from '../constants/PropTypes';
 import EditArticleTitle from '../containers/EditArticleTitle';
-import articleImage from '../images/article.jpg';
+import ArticleImage from './ArticleImage';
+import articleImageUrl from '../images/article.jpg';
 import '../css/Article.css';
 
-const Article = ({ id, title, fontSize }) => (
+const Article = ({ id, width, height, title, fontSize }) => (
   <div className="Article">
-    <div className="Article-image" >
-      <img src={ articleImage } alt="" />
-    </div>
+    <ArticleImage url={ articleImageUrl } />
     <EditArticleTitle id={ id } text={ title } fontSize={ fontSize } />
   </div>
 );
