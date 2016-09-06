@@ -7,9 +7,10 @@
   outline: 1px solid #dadada;
 }
 
-.ArticleGroup:hover {
+.ArticleGroup-wrapper:hover .ArticleGroup {
   outline-width: 2px;
   box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);
+  outline-color: #3e484a;
 }
 
 .ArticleGroup-wrapper:hover .ArticleGroup-handlebar {
@@ -28,15 +29,15 @@
   height: 1.5rem;
   top: -1.5rem;
   cursor: move;
-  box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 0px 2px rgba(0,0,0,0.23);   
-  background-color: whitesmoke;
-  outline: 2px solid #e8e8e8;
+  box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 0px 2px rgba(0,0,0,0.23);
+  background-color: #6b8186;
+  outline: 0.125rem solid #3e484a;
   position: absolute;
   z-index: 4;
 }
 
 .ArticleGroup-handlebar:hover {
-  background-color: #eaeaea;
+  background-color: #667a7d;
 }
 
 .ArticleGroup-wrapper {
