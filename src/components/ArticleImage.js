@@ -54,7 +54,6 @@ class ArticleImage extends Component {
             cropBoxResizable={ false }
             toggleDragModeOnDblclick={ false }
             guides={ false }
-            autoCrop={ false }
             style={{ height: this.state.height }}
             src={ url }
           />
