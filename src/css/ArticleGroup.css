@@ -10,7 +10,7 @@
 .ArticleGroup-wrapper:hover .ArticleGroup {
   outline-width: 2px;
   box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);
-  outline-color: #3e484a;
+  outline-color: #032d3a;
 }
 
 .ArticleGroup-wrapper:hover .ArticleGroup-handlebar {
@@ -30,14 +30,14 @@
   top: -1.5rem;
   cursor: move;
   box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 0px 2px rgba(0,0,0,0.23);
-  background-color: #6b8186;
-  outline: 0.125rem solid #3e484a;
+  background-color: #105b71;
+  outline: 0.125rem solid #032d3a;
   position: absolute;
   z-index: 4;
 }
 
 .ArticleGroup-handlebar:hover {
-  background-color: #667a7d;
+  background-color: #0e5469;
 }
 
 .ArticleGroup-wrapper {

@@ -15,5 +15,9 @@
 
 .ArticleImage-cropper {
   position: relative;
-  outline: 0.125rem solid #3e484a;
+  outline: 0.125rem solid #032d3a;
+}
+
+.ArticleImage .cropper-view-box {
+  outline: none;
 }

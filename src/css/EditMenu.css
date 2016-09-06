@@ -4,8 +4,8 @@
   color: white;
   padding: 0.25rem;
   font-weight: bold;
-  background: #536063;
-  outline: 0.125rem solid #3e484a;
+  background: #084354;
+  outline: 0.125rem solid #032d3a;
   height: 1.75rem;
   /* outline + height */
   top: -1.85rem;
@@ -40,5 +40,5 @@
 }
 
 .EditMenu-save .Icon {
-  color: #64c31d;
+  color: #4a9215;
 }
