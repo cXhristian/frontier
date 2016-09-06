@@ -11,15 +11,20 @@
 
 .Article-draggable {
   height: 100%;
-  outline: 1px dotted #c7dde2;
   user-select: none;
+  outline: 1px dotted transparent;
 }
 
 .Article-draggable-icon {
+  display: none;
   position: absolute;
   top: 0.125rem;
   left: 0.125rem;
   cursor: move;
+}
+
+.Article-draggable:hover .Article-draggable-icon {
+  display: block;
 }
 
 .Article--dragging {
@@ -29,10 +34,6 @@
 .Article--over {
   outline-style: solid;
   outline-color: #399ab7;
-}
-
-.Article-draggable:hover {
-  outline-color: #000;
 }
 
 .Article-title, .Article-title-edit input[type="text"] {

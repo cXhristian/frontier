@@ -50,6 +50,14 @@
   float: right;
 }
 
+.ArticleGroup-wrapper:hover .Article-draggable {
+  outline-color: #c7dde2;
+}
+
+.ArticleGroup-wrapper:hover .Article-draggable:hover {
+  outline-color: #000;
+}
+
 /* Animation  */
 @keyframes inflate {
     from { height: 0rem; top:0rem; }
