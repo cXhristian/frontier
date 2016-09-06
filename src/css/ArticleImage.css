@@ -1,0 +1,18 @@
+.ArticleImage {
+  flex: 1;
+  width: 100%;
+  height: auto;
+  overflow: hidden;
+}
+
+.ArticleImage--crop {
+  overflow: visible;
+}
+
+.ArticleImage img {
+  max-width: 100%;
+}
+
+.ArticleImage-cropper {
+  position: relative;
+}

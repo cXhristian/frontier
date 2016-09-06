@@ -1,6 +1,9 @@
 .EditMenu {
   width: 100%;
   background: #b8cfd0;
+  position: absolute;
+  top: -1.5rem;
+  height: 1.5rem;
 }
 
 .EditMenu-element {

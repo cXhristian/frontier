@@ -1,5 +1,6 @@
 .Article-title-edit {
   outline: 3px solid #698cab;
+  position: relative;
 }
 
 .Article-title-edit input[type="text"] {

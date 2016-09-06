@@ -1,7 +1,9 @@
 import React, { Component, PropTypes } from 'react';
 import Cropper from 'react-cropper';
 import EditMenu from '../components/EditMenu';
+import classNames from 'classnames';
 import 'cropperjs/dist/cropper.css';
+import '../css/ArticleImage.css';
 
 class ArticleImage extends Component {
   constructor(props) {
@@ -9,32 +11,36 @@ class ArticleImage extends Component {
 
     this.state = {
       cropMode: false,
-      editMode: true
+      editMode: true,
+      height: null
     };
   }
 
   saveCrop() {
     console.log(this.refs.cropper.getData(true));
-    this.toggleCropMode();
+    this.setState({
+      cropMode: false
+    });
   }
 
-  toggleCropMode() {
+  enableCropMode() {
     this.setState({
-      cropMode: !this.state.cropMode
+      cropMode: true,
+      height: this.refs.image.clientHeight
     });
   }
 
   viewRender() {
     return (
       <img src={ this.props.url } alt="" />
-    )
+    );
   }
 
   editRender() {
     const { url } = this.props;
     if(this.state.cropMode) {
       return (
-        <div>
+        <div className="ArticleImage-cropper">
           <EditMenu onSave={ this.saveCrop.bind(this) } />
           <Cropper
             ref='cropper'
@@ -48,6 +54,8 @@ class ArticleImage extends Component {
             cropBoxResizable={ false }
             toggleDragModeOnDblclick={ false }
             guides={ false }
+            autoCrop={ false }
+            style={{ height: this.state.height }}
             src={ url }
           />
         </div>
@@ -55,7 +63,7 @@ class ArticleImage extends Component {
     }
     else {
       return (
-        <div onClick={ this.toggleCropMode.bind(this) }>
+        <div onClick={ this.enableCropMode.bind(this) }>
           { this.viewRender() }
         </div>
       );
@@ -63,8 +71,11 @@ class ArticleImage extends Component {
   }
 
   render() {
+    const imageClass = classNames('ArticleImage', {
+      'ArticleImage--crop': this.state.cropMode
+    });
     return (
-      <div className="Article-image" >
+      <div ref="image" className={ imageClass } >
       { this.state.editMode ? this.editRender() : this.viewRender() }
       </div>
     )
