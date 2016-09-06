@@ -1,5 +1,6 @@
 import React, { Component, PropTypes } from 'react';
 import Cropper from 'react-cropper';
+import EditMenu from '../components/EditMenu';
 import 'cropperjs/dist/cropper.css';
 
 class ArticleImage extends Component {
@@ -12,12 +13,12 @@ class ArticleImage extends Component {
     };
   }
 
-  cropEnd() {
-    console.log(this.cropper.getData());
+  saveCrop() {
+    console.log(this.refs.cropper.getData(true));
+    this.toggleCropMode();
   }
 
   toggleCropMode() {
-    console.log('yo');
     this.setState({
       cropMode: !this.state.cropMode
     });
@@ -34,21 +35,21 @@ class ArticleImage extends Component {
     if(this.state.cropMode) {
       return (
         <div>
-        <Cropper
-          ref='cropper'
-          viewMode={ 3 }
-          dragMode='move'
-          autoCropArea={ 1 }
-          restore={ false }
-          modal={ false }
-          highlight={false }
-          cropBoxMovable={ false }
-          cropBoxResizable={ false }
-          toggleDragModeOnDblclick={ false }
-          guides={ false }
-          src={ url }
-          cropend={ this.cropEnd.bind(this) }
-        />
+          <EditMenu onSave={ this.saveCrop.bind(this) } />
+          <Cropper
+            ref='cropper'
+            viewMode={ 3 }
+            dragMode='move'
+            autoCropArea={ 1 }
+            restore={ false }
+            modal={ false }
+            highlight={false }
+            cropBoxMovable={ false }
+            cropBoxResizable={ false }
+            toggleDragModeOnDblclick={ false }
+            guides={ false }
+            src={ url }
+          />
         </div>
       );
     }
