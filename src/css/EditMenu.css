@@ -1,0 +1,24 @@
+.EditMenu {
+  width: 100%;
+  background: #b8cfd0;
+}
+
+.EditMenu-element {
+  display: inline-block;
+}
+
+.EditMenu-element input {
+  width: 3rem;
+}
+
+.EditMenu-save {
+  cursor: pointer;
+}
+
+.EditMenu-save:hover {
+  color: grey;
+}
+
+.EditMenu-save .Icon {
+  color: green;
+}

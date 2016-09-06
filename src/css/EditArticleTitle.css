@@ -8,28 +8,3 @@
   padding: 0;
   font-family: Helvetica, Arial, sans-serif;
 }
-
-.Article-title-edit-menu {
-  width: 100%;
-  background: #b8cfd0;
-}
-
-.Article-title-edit-menu-element {
-  display: inline-block;
-}
-
-.Article-title-edit-size input {
-  width: 3rem;
-}
-
-.Article-title-edit-save {
-  cursor: pointer;
-}
-
-.Article-title-edit-save:hover {
-  color: grey;
-}
-
-.Article-title-edit-save .Icon {
-  color: green;
-}
