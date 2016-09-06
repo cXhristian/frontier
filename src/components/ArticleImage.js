@@ -6,10 +6,21 @@ class ArticleImage extends Component {
   constructor(props) {
     super(props);
 
-    this.editMode = false;
+    this.state = {
+      cropMode: false,
+      editMode: true
+    };
   }
-  _crop() {
-    // console.log(this.refs.cropper.getCroppedCanvas().toDataURL());
+
+  cropEnd() {
+    console.log(this.cropper.getData());
+  }
+
+  toggleCropMode() {
+    console.log('yo');
+    this.setState({
+      cropMode: !this.state.cropMode
+    });
   }
 
   viewRender() {
@@ -20,7 +31,9 @@ class ArticleImage extends Component {
 
   editRender() {
     const { url } = this.props;
-    return (
+    if(this.state.cropMode) {
+      return (
+        <div>
         <Cropper
           ref='cropper'
           viewMode={ 3 }
@@ -34,14 +47,24 @@ class ArticleImage extends Component {
           toggleDragModeOnDblclick={ false }
           guides={ false }
           src={ url }
-          crop={this._crop.bind(this)} />
-    );
+          cropend={ this.cropEnd.bind(this) }
+        />
+        </div>
+      );
+    }
+    else {
+      return (
+        <div onClick={ this.toggleCropMode.bind(this) }>
+          { this.viewRender() }
+        </div>
+      );
+    }
   }
 
   render() {
     return (
       <div className="Article-image" >
-      { this.editMode ? this.editRender() : this.viewRender() }
+      { this.state.editMode ? this.editRender() : this.viewRender() }
       </div>
     )
   }
