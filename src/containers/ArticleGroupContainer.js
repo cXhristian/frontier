@@ -4,6 +4,7 @@ import { connect } from 'react-redux';
 import classNames from 'classnames';
 import * as ItemTypes from '../constants/ItemTypes';
 import ArticleGroup from '../components/ArticleGroup';
+import HandlebarContainer from '../containers/HandlebarContainer';
 import { addArticleToGroup, moveArticleGroup } from '../actionCreators';
 import { findDOMNode } from 'react-dom';
 
@@ -105,7 +106,7 @@ class ArticleGroupContainer extends Component {
     })
     return connectArticleGroupDropTarget(connectArticleDropTarget(connectDragPreview(
       <div className={ groupClass }>
-        { connectDragSource(<div className="ArticleGroup-handlebar"></div>) }
+        { connectDragSource(<div><HandlebarContainer groupId={ this.props.groupId }/></div>) }
         <ArticleGroup { ...this.props } />
       </div>
     )));
@@ -113,8 +114,7 @@ class ArticleGroupContainer extends Component {
 }
 
 const mapStateToProps = ({ articles, articleGroups }, { id }) => {
-  const articlesInGroup = articleGroups[id].articles
-    .map(articleId => articles[articleId]);
+  const articlesInGroup = articleGroups[id].articles.map(articleId => articles[articleId]);
   return {
     align: articleGroups[id].align,
     groupId: id,
