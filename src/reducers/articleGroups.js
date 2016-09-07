@@ -1,4 +1,4 @@
-import { MOVE_ARTICLE, ADD_ARTICLE_TO_GROUP } from '../actions';
+import { MOVE_ARTICLE, ADD_ARTICLE_TO_GROUP, NEW_ARTICLE_GROUP, DELETE_ARTICLE_GROUP } from '../actions';
 
 const removeFromArticles = (articles, index) => {
   return [
@@ -17,6 +17,7 @@ const addToArticles = (articles, index, articleId) => {
 
 const articleGroup = (state = {}, action) => {
   switch (action.type) {
+
     case MOVE_ARTICLE: {
       const { id: articleId, index: newIndex, fromGroup, toGroup } = action.payload;
       let { articles } = state;
@@ -32,6 +33,7 @@ const articleGroup = (state = {}, action) => {
       });
       return state;
     }
+
     case ADD_ARTICLE_TO_GROUP: {
       // TODO: Consider merging MOVE_ARTICLE and ADD_ARTICLE_TO_GROUP
       const { articleId, fromGroup, toGroup } = action.payload;
@@ -48,20 +50,43 @@ const articleGroup = (state = {}, action) => {
       });
       return state;
     }
+
     default:
-    return state;
+      return state;
   }
 };
 
 const articleGroups = (state = {}, action) => {
   switch(action.type) {
-    case MOVE_ARTICLE:
-    case ADD_ARTICLE_TO_GROUP:
+
+    case NEW_ARTICLE_GROUP: {
+        const id = action.payload.id
+        const align = action.payload.align
+        const newArticleGroup = {
+            id,
+            articles: [],
+            align
+        }
+        return Object.assign({}, state, {
+          [id]: newArticleGroup
+        });
+      }
+
+    case ADD_ARTICLE_TO_GROUP: {
       const { fromGroup, toGroup } = action.payload;
       return Object.assign({}, state, {
         [fromGroup]: articleGroup(state[fromGroup], action),
         [toGroup]: articleGroup(state[toGroup], action)
       });
+    }
+
+    case DELETE_ARTICLE_GROUP: {
+      const deleteId = action.payload.id;
+      state = Object.assign({}, state); // Create new object
+      delete state[deleteId]
+      return state;
+    }
+
     default:
       return state;
   }
