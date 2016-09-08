@@ -12,7 +12,7 @@
 .Article-draggable {
   height: 100%;
   user-select: none;
-  outline: 1px dotted transparent;
+  outline: 1px solid transparent;
 }
 
 .Article-draggable-icon {

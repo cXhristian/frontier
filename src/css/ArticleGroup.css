@@ -13,7 +13,7 @@
   outline-color: #032d3a;
 }
 
-.ArticleGroup-wrapper:hover .ArticleGroup-handlebar {
+.ArticleGroup-wrapper:hover .Handlebar {
   display: block;
   animation-name: inflate;
   animation-duration: 0.2s;
@@ -21,23 +21,6 @@
 
 .ArticleGroup--over .ArticleGroup {
   outline-color: #399ab7;
-}
-
-.ArticleGroup-handlebar {
-  display: none;
-  width: 100%;
-  height: 1.5rem;
-  top: -1.5rem;
-  cursor: move;
-  box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 0px 2px rgba(0,0,0,0.23);
-  background-color: #105b71;
-  outline: 0.125rem solid #032d3a;
-  position: absolute;
-  z-index: 4;
-}
-
-.ArticleGroup-handlebar:hover {
-  background-color: #0e5469;
 }
 
 .ArticleGroup-wrapper {
@@ -61,5 +44,5 @@
 /* Animation  */
 @keyframes inflate {
     from { height: 0rem; top:0rem; }
-    to { height: 1.5rem; top: -1.5rem; }
+    to { height: 3rem; top: -3rem; }
 }

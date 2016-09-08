@@ -1,7 +1,7 @@
 import React, { PropTypes } from 'react';
 import classNames from 'classnames';
 
-const Icon = ({ className, fixedWidth, name, size }) => {
+const Icon = ({ className, fixedWidth, name, size, ...other }) => {
   const iconClass = classNames({
     [className]: className,
     'Icon': true,
@@ -10,7 +10,7 @@ const Icon = ({ className, fixedWidth, name, size }) => {
     [`fa-${size}`]: size,
     'fa-fw': fixedWidth
   });
-  return <i className={ iconClass } aria-hidden="true"></i>;
+  return <i className={ iconClass } { ...other } aria-hidden="true"></i>;
 };
 
 Icon.propTypes = {
