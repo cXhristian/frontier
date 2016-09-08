@@ -2,7 +2,8 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { editTitle } from '../actionCreators';
 import ArticleTitle from '../components/ArticleTitle';
-import Icon from '../components/Icon';
+import EditMenu from '../components/EditMenu';
+import EditMenuElement from '../components/EditMenuElement';
 import '../css/EditArticleTitle.css';
 
 class EditArticleTitle extends Component {
@@ -51,17 +52,9 @@ class EditArticleTitle extends Component {
       const { fontSize, text } = this.state;
       return (
         <div className="Article-title-edit">
-          <div className="Article-title-edit-menu">
-            <div className="Article-title-edit-menu-element Article-title-edit-size">
-              <Icon name="font" />
-              <input value={ fontSize } onChange={ this.updateFontSize }
-                min="10" max="100" type="number" />
-            </div>
-            <div onClick={ this.saveTitle }
-              className="Article-title-edit-menu-element Article-title-edit-save">
-              <Icon name="check" /> Save
-            </div>
-          </div>
+          <EditMenu onSave={ this.saveTitle }>
+            <EditMenuElement icon="font" value={ fontSize } onChange={ this.updateFontSize } />
+          </EditMenu>
           <input autoFocus type="text" value={ text }
             onChange={ this.updateText } style={{ fontSize: `${fontSize}px` }} />
         </div>

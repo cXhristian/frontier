@@ -1,0 +1,44 @@
+.EditMenu {
+  position: absolute;
+  width: 100%;
+  color: white;
+  padding: 0.25rem;
+  font-weight: bold;
+  background: #084354;
+  outline: 0.125rem solid #032d3a;
+  height: 1.75rem;
+  /* outline + height */
+  top: -1.85rem;
+  z-index: 5;
+}
+
+.EditMenu-element {
+  display: inline-block;
+  padding: 0 0.5rem;
+  border-right: 1px solid #7c878a;
+}
+
+.EditMenu-element .Icon {
+}
+
+.EditMenu-element:last-child {
+  border: none;
+}
+
+.EditMenu-element input {
+  margin-left: 0.5rem;
+  width: 3rem;
+  height: 20px;
+}
+
+.EditMenu-save {
+  cursor: pointer;
+}
+
+.EditMenu-save:hover {
+  color: #e0e0e0;
+}
+
+.EditMenu-save .Icon {
+  color: #4a9215;
+}

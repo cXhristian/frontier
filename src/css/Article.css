@@ -7,20 +7,24 @@
   height: 100%;
   display: flex;
   flex-direction: column;
-  overflow: hidden;
 }
 
 .Article-draggable {
   height: 100%;
-  outline: 1px solid #c7dde2;
   user-select: none;
+  outline: 1px solid transparent;
 }
 
 .Article-draggable-icon {
+  display: none;
   position: absolute;
   top: 0.125rem;
   left: 0.125rem;
   cursor: move;
+}
+
+.Article-draggable:hover .Article-draggable-icon {
+  display: block;
 }
 
 .Article--dragging {
@@ -31,24 +35,6 @@
   outline-style: solid;
   outline-color: #399ab7;
 }
-
-
-.Article-draggable:hover {
-  outline-color: #000;
-}
-
-
-.Article-image {
-  overflow: hidden;
-  width: 100%;
-  height: auto;
-  flex: 1;
-}
-
-.Article-image img {
-  max-width: 100%;
-}
-
 
 .Article-title, .Article-title-edit input[type="text"] {
   margin: 1rem 0 0 0;

@@ -17,7 +17,7 @@
   "bugs": {
     "url": "https://github.com/duvholt/frontier/issues"
   },
-  "homepage": "https://github.com/duvholt/frontier#readme",
+  "homepage": "http://duvholt.github.io/frontier/",
   "private": true,
   "devDependencies": {
     "babel-eslint": "^6.1.2",
@@ -25,12 +25,13 @@
     "eslint-plugin-flowtype": "^2.4.0",
     "eslint-plugin-jsx-a11y": "^2.0.1",
     "eslint-plugin-react": "^5.2.2",
-    "react-scripts": "0.2.0",
+    "react-scripts": "0.4.1",
     "redux-logger": "^2.6.1"
   },
   "dependencies": {
     "classnames": "^2.2.5",
     "react": "^15.2.1",
+    "react-cropper": "^0.9.4",
     "react-dnd": "^2.1.4",
     "react-dnd-html5-backend": "^2.1.2",
     "react-dom": "^15.2.1",
