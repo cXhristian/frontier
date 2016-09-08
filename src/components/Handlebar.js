@@ -1,15 +1,12 @@
 import React, { PropTypes } from 'react';
+import Icon from './Icon';
 import '../css/Handlebar.css'
 
 const Handlebar = ({ newArticleGroup, deleteArticleGroup }) => {
     return(
         <div className="Handlebar" >
-            <div className="Icon">
-            <i className="fa fa-trash-o fa-2x" onClick={deleteArticleGroup}/>
-            </div>
-            <div className="Icon">
-            <i className="fa fa-plus fa-2x" onClick={newArticleGroup}/>
-            </div>
+            <Icon size="2x" name="trash" onClick={ deleteArticleGroup } />
+            <Icon size="2x" name="plus" onClick={ newArticleGroup } />
         </div>);
 }
 
