@@ -11,6 +11,7 @@
 
 .Article-draggable {
   height: 100%;
+  outline: 1px solid #c7dde2;
   user-select: none;
   outline: 1px dotted transparent;
 }
