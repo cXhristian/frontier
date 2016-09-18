@@ -1,2 +1,3 @@
 export const ARTICLE = 'ARTICLE';
 export const ARTICLE_GROUP_CONTAINER = 'ARTICLE_GROUP_CONTAINER';
+export const CONTENT = "CONTENT";
