@@ -73,6 +73,30 @@ export default {
       "height": 224,
       "fontSize": 20,
       "type": ARTICLE
+    },
+    10: {
+      "id": 10,
+      "title": "Unused article",
+      "width": 416,
+      "height": 224,
+      "fontSize": 20,
+      "type": ARTICLE
+    },
+    11: {
+      "id": 10,
+      "title": "Unused live thing",
+      "width": 416,
+      "height": 224,
+      "fontSize": 20,
+      "type": LIVE
+    },
+    12: {
+      "id": 10,
+      "title": "Unused video",
+      "width": 416,
+      "height": 224,
+      "fontSize": 20,
+      "type": VIDEO
     }
   },
   "groupOrder": [1, 2, 3],
