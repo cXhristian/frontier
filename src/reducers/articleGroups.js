@@ -74,6 +74,11 @@ const articleGroups = (state = {}, action) => {
 
     case ADD_ARTICLE_TO_GROUP: {
       const { fromGroup, toGroup } = action.payload;
+      if( fromGroup === -1 ){
+        return Object.assign({}, state, {
+          [toGroup]: articleGroup(state[toGroup], action)
+        });
+      }
       return Object.assign({}, state, {
         [fromGroup]: articleGroup(state[fromGroup], action),
         [toGroup]: articleGroup(state[toGroup], action)
