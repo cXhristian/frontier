@@ -32,14 +32,14 @@ const articleGroupSource = {
 const unUsedContentTarget = {
 
   drop(props, monitor, component) {
-    console.log(monitor.getItem());
     const hasDroppedOnChild = monitor.didDrop();
     if(hasDroppedOnChild) {
       return;
     }
 
-    const articleId = monitor.getItem().id;
+    const articleId = monitor.getItem().content.id;
     const toGroup = props.groupId;
+    const dispatch = props.dispatch;
     dispatch(addArticleToGroup(articleId, toGroup, -1));
   }
 }
