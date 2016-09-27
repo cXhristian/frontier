@@ -40,3 +40,9 @@
 .ArticleGroup-wrapper:hover .Article-draggable:hover {
   outline-color: #000;
 }
+
+/* Animation  */
+@keyframes inflate {
+    from { height: 0rem; top:0rem; }
+    to { height: 3rem; top: -3rem; }
+}
