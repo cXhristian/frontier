@@ -1,21 +1,20 @@
-.ArticleImage {
-  flex: 1;
+.ArticleImage, .ArticleImage-wrapper {
   width: 100%;
-  height: auto;
+  height: 100%;
   overflow: hidden;
 }
 
-.ArticleImage--crop {
-  overflow: visible;
-}
-
-.ArticleImage img {
-  max-width: 100%;
+.ArticleImage {
+  display: inline;
 }
 
 .ArticleImage-cropper {
   position: relative;
   outline: 0.125rem solid #032d3a;
+}
+
+.ArticleImage-cropper .ArticleImage {
+  overflow: visible;
 }
 
 .ArticleImage .cropper-view-box {
