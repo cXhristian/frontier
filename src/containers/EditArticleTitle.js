@@ -16,6 +16,7 @@ class EditArticleTitle extends Component {
     };
     this.editMode = this.editMode.bind(this);
     this.saveTitle = this.saveTitle.bind(this);
+    this.cancelEdit = this.cancelEdit.bind(this);
     this.updateText = this.updateText.bind(this);
     this.updateFontSize = this.updateFontSize.bind(this);
   }
@@ -29,6 +30,12 @@ class EditArticleTitle extends Component {
 
   saveTitle(e) {
     this.props.dispatch(editTitle(this.props.id, this.state.text, this.state.fontSize));
+    this.setState({
+      editing: false
+    });
+  }
+
+  cancelEdit() {
     this.setState({
       editing: false
     });
@@ -52,7 +59,7 @@ class EditArticleTitle extends Component {
       const { fontSize, text } = this.state;
       return (
         <div className="Article-title-edit">
-          <EditMenu onSave={ this.saveTitle }>
+          <EditMenu onSave={ this.saveTitle } onCancel={ this.cancelEdit }>
             <EditMenuElement icon="font" value={ fontSize } onChange={ this.updateFontSize } />
           </EditMenu>
           <input autoFocus type="text" value={ text }

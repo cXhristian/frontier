@@ -16,12 +16,20 @@ class ArticleImage extends Component {
       editMode: true,
       height: null
     };
+    this.cancelCrop = this.cancelCrop.bind(this);
     this.ready = this.ready.bind(this);
+    this.saveCrop = this.saveCrop.bind(this);
   }
 
   saveCrop() {
     const { id, dispatch } = this.props;
     dispatch(cropArticleImage(id, this.refs.cropper.getCanvasData()));
+    this.setState({
+      cropMode: false
+    });
+  }
+
+  cancelCrop() {
     this.setState({
       cropMode: false
     });
@@ -63,7 +71,7 @@ class ArticleImage extends Component {
     if(this.state.cropMode) {
       return (
         <div className="ArticleImage-cropper">
-          <EditMenu onSave={ this.saveCrop.bind(this) } />
+          <EditMenu onSave={ this.saveCrop } onCancel={ this.cancelCrop } />
           <Cropper
             ref='cropper'
             viewMode={ 3 }

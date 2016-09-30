@@ -31,14 +31,18 @@
   height: 20px;
 }
 
-.EditMenu-save {
+.EditMenu-save, .EditMenu-cancel {
   cursor: pointer;
 }
 
-.EditMenu-save:hover {
+.EditMenu-save:hover, .EditMenu-cancel:hover {
   color: #e0e0e0;
 }
 
 .EditMenu-save .Icon {
   color: #4a9215;
+}
+
+.EditMenu-cancel .Icon {
+  color: #a94721;
 }
