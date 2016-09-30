@@ -1,6 +1,8 @@
 import React, { Component, PropTypes } from 'react';
+import { connect} from 'react-redux';
 import Cropper from 'react-cropper';
 import EditMenu from '../components/EditMenu';
+import { cropArticleImage } from '../actionCreators';
 import classNames from 'classnames';
 import 'cropperjs/dist/cropper.css';
 import '../css/ArticleImage.css';
@@ -18,6 +20,8 @@ class ArticleImage extends Component {
   }
 
   saveCrop() {
+    const { id, dispatch } = this.props;
+    dispatch(cropArticleImage(id, this.refs.cropper.getCanvasData()));
     this.setState({
       cropMode: false
     });
@@ -104,4 +108,4 @@ ArticleImage.propTypes = {
   url: PropTypes.string.isRequired
 }
 
-export default ArticleImage;
+export default connect()(ArticleImage);

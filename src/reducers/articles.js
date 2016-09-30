@@ -1,7 +1,16 @@
-import { EDIT_TITLE, RESIZE_ARTICLE } from '../actions';
+import { EDIT_TITLE, RESIZE_ARTICLE, CROP_IMAGE } from '../actions';
 
 const article = (state = {}, action) => {
   switch (action.type) {
+    case CROP_IMAGE: {
+      const { width, height, top, left } = action.payload.cropData;
+      return Object.assign({}, state, {
+        imageWidth: width,
+        imageHeight: height,
+        imageOffsetX: left,
+        imageOffsetY: top
+      });
+    }
     case RESIZE_ARTICLE:
       const { height, width } = action.payload;
       return Object.assign({}, state, {
@@ -20,6 +29,7 @@ const article = (state = {}, action) => {
 
 const articles = (state = {}, action) => {
   switch(action.type) {
+    case CROP_IMAGE:
     case RESIZE_ARTICLE:
     case EDIT_TITLE: {
       const { id } = action.payload;

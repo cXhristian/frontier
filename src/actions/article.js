@@ -2,3 +2,4 @@ export const RESIZE_ARTICLE = 'RESIZE_ARTICLE';
 export const MOVE_ARTICLE = 'MOVE_ARTICLE';
 export const ADD_ARTICLE_TO_GROUP = 'ADD_ARTICLE_TO_GROUP';
 export const EDIT_TITLE = 'EDIT_TITLE';
+export const CROP_IMAGE = 'CROP_IMAGE';

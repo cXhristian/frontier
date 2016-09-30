@@ -1,4 +1,4 @@
-import { EDIT_TITLE, MOVE_ARTICLE, RESIZE_ARTICLE, ADD_ARTICLE_TO_GROUP } from '../actions';
+import { EDIT_TITLE, MOVE_ARTICLE, RESIZE_ARTICLE, ADD_ARTICLE_TO_GROUP, CROP_IMAGE } from '../actions';
 
 export const resizeArticle = (id, width, height) => {
   return {
@@ -34,4 +34,11 @@ export const addArticleToGroup = (articleId, toGroup, fromGroup = null) => {
       articleId, toGroup, fromGroup
     }
   }
+};
+
+export const cropArticleImage = (id, cropData) => {
+  return {
+    type: CROP_IMAGE,
+    payload: { id, cropData }
+  };
 };
