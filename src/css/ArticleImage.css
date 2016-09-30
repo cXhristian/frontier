@@ -5,13 +5,17 @@
   overflow: hidden;
 }
 
-.ArticleImage--crop {
-  overflow: visible;
+.ArticleImage-wrapper {
+  overflow: hidden;
 }
 
 .ArticleImage-cropper {
   position: relative;
   outline: 0.125rem solid #032d3a;
+}
+
+.ArticleImage-cropper .ArticleImage {
+  overflow: visible;
 }
 
 .ArticleImage .cropper-view-box {
