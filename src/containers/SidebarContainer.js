@@ -7,20 +7,16 @@ const mapStateToProps = ({articles, articleGroups}) => {
   const content = {};
   const contentTypes = [ARTICLE, VIDEO, LIVE];
 
-  // Find all used article IDs by going through articleGroups
+  /* Find all used article IDs by going through articleGroups */
   const usedArticleIds = Object.keys(articleGroups)
     .map( groupKey => articleGroups[groupKey].articles )
     .reduce( (list, articleKeys) => list.concat(articleKeys) ,[]);
 
-  console.log("Used article ids", usedArticleIds);
-
-  // Get un-used article IDs
+  /* Get un-used article IDs */
   const unUsedArticleKeys = Object.keys(articles)
     .filter(key => usedArticleIds.indexOf(parseInt(key, 10)) === -1);
 
-  console.log("Un-used article keys ", unUsedArticleKeys);
-
-  // Categorize by type
+  /* Categorize by type */
   contentTypes.forEach( type => {
     content[type] = unUsedArticleKeys
       .filter(key => articles[key].type === type)
@@ -33,32 +29,30 @@ const mapStateToProps = ({articles, articleGroups}) => {
   };
 }
 
-const mapDispatchToProps = () => {
-  return {
-    toggleSidebar: () => {
-      const sidebarClasses = document.getElementById("sidebar").classList;
-      if(sidebarClasses.contains("Sidebar-wrapper-active")){
-        sidebarClasses.remove("Sidebar-wrapper-active");
-        sidebarClasses.add("Sidebar-wrapper-inactive");
-      }
-      else{
-        sidebarClasses.remove("Sidebar-wrapper-inactive");
-        sidebarClasses.add("Sidebar-wrapper-active");
-      }
-
-    }
-  }
-}
-
 class SidebarContainer extends React.Component {
+  constructor(props){
+    super(props);
+    this.state = {
+      active: false
+    };
+  }
+
+  toggle(){
+    this.setState({
+      active: !this.state.active
+    });
+  }
+
   render(){
     return (
       <Sidebar
         contentTypes={this.props.contentTypes}
         content={this.props.content}
-        toggleSidebar={this.props.toggleSidebar} />
+        toggle={this.toggle.bind(this)}
+        active={this.state.active}
+         />
     )
   }
 };
 
-module.exports = connect(mapStateToProps, mapDispatchToProps)(SidebarContainer);
+module.exports = connect(mapStateToProps)(SidebarContainer);

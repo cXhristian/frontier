@@ -6,10 +6,10 @@ import UnUsedContentContainer from '../containers/UnUsedContentContainer';
 
 
 
-const Sidebar = ({contentTypes, content, toggleSidebar}) => (
-  <div className="Sidebar-wrapper" id="sidebar">
-    <ul id="slide-out" className="side-nav">
-      <li className="Sidebar-hamburger-icon" ><Icon size="2x" name="bars" onClick={toggleSidebar} /></li>
+const Sidebar = ({contentTypes, content, toggle, active}) => (
+  <div className={"Sidebar-wrapper " + (active ? "Sidebar-wrapper-active" : "Sidebar-wrapper-inactive")}>
+    <ul className="side-nav">
+      <li className="Sidebar-hamburger-icon" ><Icon size="2x" name="bars" onClick={toggle} /></li>
 
       {
         contentTypes.map( contentType => {
@@ -18,7 +18,6 @@ const Sidebar = ({contentTypes, content, toggleSidebar}) => (
             {
                 Object.keys(content[contentType]).map( key => {
                   return <UnUsedContentContainer key={key} content={content[contentType][key]}/>
-                  //return <li key={key} className="Sidebar-selectable" ><a href="#!">{ content[contentType][key].title }</a></li>
                 })
             }
           </div>
