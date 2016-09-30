@@ -9,10 +9,6 @@
   overflow: visible;
 }
 
-.ArticleImage img {
-  max-width: 100%;
-}
-
 .ArticleImage-cropper {
   position: relative;
   outline: 0.125rem solid #032d3a;

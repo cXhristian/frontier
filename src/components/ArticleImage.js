@@ -14,10 +14,10 @@ class ArticleImage extends Component {
       editMode: true,
       height: null
     };
+    this.ready = this.ready.bind(this);
   }
 
   saveCrop() {
-    console.log(this.refs.cropper.getData(true));
     this.setState({
       cropMode: false
     });
@@ -31,9 +31,27 @@ class ArticleImage extends Component {
   }
 
   viewRender() {
+    let style = {};
+    if(this.props.imageWidth !== undefined) {
+      style = {
+        width: this.props.imageWidth,
+        height: this.props.imageHeight,
+        marginLeft: this.props.imageOffsetX,
+        marginTop: this.props.imageOffsetY
+      };
+    }
     return (
-      <img src={ this.props.url } alt="" />
+      <img style={ style } src={ this.props.url } alt="" />
     );
+  }
+
+  ready() {
+    this.refs.cropper.setCanvasData({
+      left: this.props.imageOffsetX,
+      top: this.props.imageOffsetY,
+      width: this.props.imageWidth,
+      height: this.props.imageHeight
+    });
   }
 
   editRender() {
@@ -46,7 +64,7 @@ class ArticleImage extends Component {
             ref='cropper'
             viewMode={ 3 }
             dragMode='move'
-            autoCropArea={ 1 }
+            autoCrop={ false }
             restore={ false }
             modal={ false }
             highlight={false }
@@ -56,6 +74,7 @@ class ArticleImage extends Component {
             guides={ false }
             style={{ height: this.state.height }}
             src={ url }
+            ready={ this.ready }
           />
         </div>
       );

@@ -5,12 +5,15 @@ import ArticleImage from './ArticleImage';
 import articleImageUrl from '../images/article.jpg';
 import '../css/Article.css';
 
-const Article = ({ id, width, height, title, fontSize }) => (
-  <div className="Article">
-    <ArticleImage url={ articleImageUrl } />
-    <EditArticleTitle id={ id } text={ title } fontSize={ fontSize } />
-  </div>
-);
+const Article = (props) => {
+  const { id, title, fontSize } = props;
+  return (
+    <div className="Article">
+      <ArticleImage { ...props } url={ articleImageUrl } />
+      <EditArticleTitle id={ id } text={ title } fontSize={ fontSize } />
+    </div>
+  );
+};
 
 Article.propTypes = ArticlePropTypes;
 

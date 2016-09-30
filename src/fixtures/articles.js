@@ -12,6 +12,10 @@ export default {
       "title": "Small top",
       "width": 416,
       "height": 224,
+      "imageWidth": 511,
+      "imageHeight": 408,
+      "imageOffsetX": -80,
+      "imageOffsetY": -142,
       "fontSize": 20
     },
     3: {
