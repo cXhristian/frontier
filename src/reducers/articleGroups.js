@@ -71,7 +71,7 @@ const articleGroups = (state = {}, action) => {
           [id]: newArticleGroup
         });
       }
-
+    case MOVE_ARTICLE:
     case ADD_ARTICLE_TO_GROUP: {
       const { fromGroup, toGroup } = action.payload;
       return Object.assign({}, state, {
