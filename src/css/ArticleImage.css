@@ -1,12 +1,11 @@
-.ArticleImage {
+.ArticleImage, .ArticleImage-wrapper {
   width: 100%;
-  height: auto;
+  height: 100%;
   overflow: hidden;
-  display: inline;
 }
 
-.ArticleImage-wrapper {
-  overflow: hidden;
+.ArticleImage {
+  display: inline;
 }
 
 .ArticleImage-cropper {
