@@ -1,4 +1,4 @@
-import { MOVE_ARTICLE, ADD_ARTICLE_TO_GROUP, NEW_ARTICLE_GROUP, DELETE_ARTICLE_GROUP } from '../actions';
+import { MOVE_ARTICLE, ADD_ARTICLE_TO_GROUP, NEW_ARTICLE_GROUP, DELETE_ARTICLE_GROUP, DELETE_ARTICLE_FROM_GROUP } from '../actions';
 
 const removeFromArticles = (articles, index) => {
   return [
@@ -51,6 +51,13 @@ const articleGroup = (state = {}, action) => {
       return state;
     }
 
+    case DELETE_ARTICLE_FROM_GROUP: {
+      const articleIndex = state.articles.indexOf(action.payload.articleId);
+      return Object.assign({}, state, {
+        articles: removeFromArticles(state.articles, articleIndex)
+      });
+    }
+
     default:
       return state;
   }
@@ -71,6 +78,7 @@ const articleGroups = (state = {}, action) => {
           [id]: newArticleGroup
         });
       }
+
     case MOVE_ARTICLE:
     case ADD_ARTICLE_TO_GROUP: {
       const { fromGroup, toGroup } = action.payload;
@@ -82,6 +90,13 @@ const articleGroups = (state = {}, action) => {
       return Object.assign({}, state, {
         [fromGroup]: articleGroup(state[fromGroup], action),
         [toGroup]: articleGroup(state[toGroup], action)
+      });
+    }
+
+    case DELETE_ARTICLE_FROM_GROUP: {
+      const { groupId } = action.payload;
+      return Object.assign({}, state, {
+        [groupId]: articleGroup(state[groupId], action)
       });
     }
 
