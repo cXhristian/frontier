@@ -9,4 +9,4 @@ const UnUsedContent = ({content}) => {
   );
 }
 
-module.exports = UnUsedContent;
+export default UnUsedContent;

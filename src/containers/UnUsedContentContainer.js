@@ -31,4 +31,4 @@ class UnUsedContentContainer extends React.Component {
 }
 
 UnUsedContentContainer = DragSource(ItemTypes.CONTENT, contentDragSource, collectContentProps)(UnUsedContentContainer);
-module.exports = UnUsedContentContainer;
+export default UnUsedContentContainer;

@@ -33,4 +33,4 @@ Sidebar.propTypes = {
   content: PropTypes.object.isRequired
 }
 
-module.exports = Sidebar;
+export default Sidebar;

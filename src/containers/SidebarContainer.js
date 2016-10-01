@@ -55,4 +55,4 @@ class SidebarContainer extends React.Component {
   }
 };
 
-module.exports = connect(mapStateToProps)(SidebarContainer);
+export default connect(mapStateToProps)(SidebarContainer);
