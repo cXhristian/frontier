@@ -8,6 +8,7 @@ import initialState from './fixtures/articles';
 import createLogger from 'redux-logger';
 import './css/index.css';
 import './css/Grid.css';
+import '../node_modules/font-awesome/css/font-awesome.css';
 
 const logger = createLogger();
 const store = createStore(reducers, initialState, applyMiddleware(logger));

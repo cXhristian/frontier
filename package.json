@@ -30,6 +30,7 @@
   },
   "dependencies": {
     "classnames": "^2.2.5",
+    "font-awesome": "^4.6.3",
     "react": "^15.2.1",
     "react-cropper": "^0.9.4",
     "react-dnd": "^2.1.4",

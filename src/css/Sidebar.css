@@ -1,0 +1,68 @@
+.Sidebar-wrapper {
+  background-color: white;
+  top:0px;
+  right: -22vw;
+  position: fixed;
+  height: 100vh;
+  width: 25vw;
+  z-index: 5;
+  box-shadow: 5px 5px 5px 5px #757171;
+}
+
+.Sidebar-hamburger-icon {
+  padding-left: 10px;
+  padding-right: 10px;
+}
+
+.Sidebar-wrapper-active {
+  animation-name: slide-in;
+  animation-duration: 0.3s;
+  right: 0vw;
+}
+
+.Sidebar-wrapper-inactive {
+  animation-name: slide-out;
+  animation-duration: 0.3s;
+  right: -22vw;
+}
+
+.Sidebar-wrapper ul {
+  padding-left: 0px;
+}
+
+.Sidebar-wrapper li {
+  list-style: none;
+}
+
+.Sidebar-wrapper a {
+  padding-left: 30px;
+  color: #333333;
+  text-decoration: none;
+  display: block;
+  padding-top: 8px;
+  padding-bottom: 8px;
+}
+
+.Sidebar-selectable :hover{
+  cursor: move;
+  background-color: #e4e4e4;
+}
+
+.Sidebar-wrapper .subheader {
+  border-bottom: 1px solid #bbbfc1;
+  margin-left: 15px;
+  margin-right: 15px;
+  padding-top: 25px;
+  padding-bottom: 5px;
+  margin-bottom: 5px;
+}
+
+@keyframes slide-in {
+  from { right: -22vw; }
+  to { right: 0vw; }
+}
+
+@keyframes slide-out {
+  from { right: 0vw; }
+  to { right: -22vw; }
+}

@@ -29,6 +29,21 @@ const articleGroupSource = {
   }
 }
 
+const unUsedContentTarget = {
+
+  drop(props, monitor, component) {
+    const hasDroppedOnChild = monitor.didDrop();
+    if(hasDroppedOnChild) {
+      return;
+    }
+
+    const articleId = monitor.getItem().content.id;
+    const toGroup = props.groupId;
+    const dispatch = props.dispatch;
+    dispatch(addArticleToGroup(articleId, toGroup, -1));
+  }
+}
+
 const articleGroupTarget = {
   hover(props, monitor, component){
     const { index:dragIndex, groupId: dragId } = monitor.getItem();
@@ -91,6 +106,12 @@ const collectArticleGroupSource = (connect, monitor) => {
   }
 }
 
+const collectArticleGroupContentTarget = (connect, monitor) => {
+  return {
+    connectArticleGroupContentDropTarget: connect.dropTarget()
+  }
+}
+
 const collectArticleGroupTarget = (connect, monitor) => {
   return {
     connectArticleGroupDropTarget: connect.dropTarget()
@@ -100,16 +121,17 @@ const collectArticleGroupTarget = (connect, monitor) => {
 class ArticleGroupContainer extends Component {
   render() {
     const { connectArticleDropTarget, connectArticleGroupDropTarget,
-       connectDragSource, connectDragPreview, isOver } = this.props;
+       connectDragSource, connectDragPreview, isOver, connectArticleGroupContentDropTarget } = this.props;
     const groupClass = classNames('ArticleGroup-wrapper', {
       'ArticleGroup--over': isOver
     })
-    return connectArticleGroupDropTarget(connectArticleDropTarget(connectDragPreview(
+    return connectArticleGroupContentDropTarget(
+    connectArticleGroupDropTarget(connectArticleDropTarget(connectDragPreview(
       <div className={ groupClass }>
         { connectDragSource(<div><HandlebarContainer groupId={ this.props.groupId }/></div>) }
         <ArticleGroup { ...this.props } />
       </div>
-    )));
+    ))));
   }
 }
 
@@ -129,5 +151,6 @@ ArticleGroupContainer = DragSource(ItemTypes.ARTICLE_GROUP_CONTAINER, articleGro
 // eslint-disable-next-line new-cap
 ArticleGroupContainer = DropTarget(ItemTypes.ARTICLE_GROUP_CONTAINER, articleGroupTarget, collectArticleGroupTarget)(ArticleGroupContainer);
 
+ArticleGroupContainer = DropTarget(ItemTypes.CONTENT, unUsedContentTarget, collectArticleGroupContentTarget)(ArticleGroupContainer);
 
 export default connect(mapStateToProps)(ArticleGroupContainer);
