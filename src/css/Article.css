@@ -41,3 +41,15 @@
   margin: 1rem 0 0 0;
   font-weight: bold;
 }
+
+.Article-draggable:hover .Article-delete-icon {
+  display: inline-block !important;
+}
+
+.Article-delete-icon {
+  display: none !important;
+  position: absolute;
+  right: 3px;
+  top: 3px;
+  cursor: pointer;
+}
