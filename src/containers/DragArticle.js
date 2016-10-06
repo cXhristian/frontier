@@ -3,9 +3,10 @@ import { connect } from 'react-redux';
 import { DragSource, DropTarget } from 'react-dnd';
 import classNames from 'classnames';
 import Icon from '../components/Icon';
-import { moveArticle } from '../actionCreators';
+import { moveArticle, deleteArticleFromGroup } from '../actionCreators';
 import * as ItemTypes from '../constants/ItemTypes';
 import Article from '../components/Article';
+
 
 const articleSource = {
   beginDrag(props) {
@@ -44,9 +45,17 @@ const collectSource = (connect, monitor) => {
   }
 }
 
+const mapDispatchToProps = (dispatch, props) => {
+  return {
+    deleteArticleFromGroup: () => {
+      dispatch(deleteArticleFromGroup(props.id , props.groupId))
+    }
+  }
+}
+
 class DragArticle extends Component {
   render() {
-    const { connectDragSource, connectDragPreview, connectDropTarget, isDragging, isOver } = this.props;
+    const { connectDragSource, connectDragPreview, connectDropTarget, isDragging, isOver, deleteArticleFromGroup } = this.props;
     const dragClass = classNames({
       'Article-draggable': true,
       'Article--dragging': isDragging,
@@ -55,6 +64,7 @@ class DragArticle extends Component {
     return connectDropTarget(connectDragPreview(
       <div className={ dragClass } >
         { connectDragSource(<span><Icon className="Article-draggable-icon" name="arrows" /></span>) }
+        <Icon className="Article-delete-icon" size="1x" name="trash" onClick={deleteArticleFromGroup} />
         <Article { ...this.props } />
       </div>
     ))
@@ -65,4 +75,4 @@ class DragArticle extends Component {
 DragArticle = DropTarget(ItemTypes.ARTICLE, articleTarget, collectTarget)(DragArticle);
 // eslint-disable-next-line
 DragArticle = DragSource(ItemTypes.ARTICLE, articleSource, collectSource)(DragArticle);
-export default connect()(DragArticle);
+export default connect(null,mapDispatchToProps)(DragArticle);

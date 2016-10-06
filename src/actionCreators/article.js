@@ -1,4 +1,4 @@
-import { EDIT_TITLE, MOVE_ARTICLE, RESIZE_ARTICLE, ADD_ARTICLE_TO_GROUP, CROP_IMAGE } from '../actions';
+import { EDIT_TITLE, MOVE_ARTICLE, RESIZE_ARTICLE, ADD_ARTICLE_TO_GROUP, CROP_IMAGE, DELETE_ARTICLE_FROM_GROUP } from '../actions';
 
 export const resizeArticle = (id, width, height) => {
   return {
@@ -35,6 +35,15 @@ export const addArticleToGroup = (articleId, toGroup, fromGroup = null) => {
     }
   }
 };
+
+export const deleteArticleFromGroup = (articleId, groupId) => {
+  return {
+    type: DELETE_ARTICLE_FROM_GROUP,
+    payload: {
+      articleId, groupId
+    }
+  }
+}
 
 export const cropArticleImage = (id, cropData) => {
   return {
