@@ -19,3 +19,12 @@ render(
   </Provider>,
   document.getElementById('root')
 );
+
+/*
+  Disable selecting of elements:
+  If an article is selected by accident (happens a lot simply by clicking)
+  the article will be dragged instead of resized which looks odd and feels buggy
+*/
+document.onselectstart = function() {
+  return false;
+}
