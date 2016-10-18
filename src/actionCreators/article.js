@@ -1,18 +1,18 @@
 import { EDIT_TITLE, MOVE_ARTICLE, RESIZE_ARTICLE, ADD_ARTICLE_TO_GROUP, CROP_IMAGE, DELETE_ARTICLE_FROM_GROUP } from '../actions';
 
-export const resizeArticle = (id, width, height) => ({
+export const resizeArticle = (articleId, width, height) => ({
   type: RESIZE_ARTICLE,
-  payload: { id, width, height }
+  payload: { articleId, width, height }
 });
 
-export const editTitle = (id, title, fontSize) => ({
+export const editTitle = (articleId, title, fontSize) => ({
   type: EDIT_TITLE,
-  payload: { id, title, fontSize }
+  payload: { articleId, title, fontSize }
 });
 
-export const moveArticle = (id, fromGroup, toGroup, index) => ({
+export const moveArticle = (articleId, fromGroup, toGroup, index) => ({
   type: MOVE_ARTICLE,
-  payload: { id, fromGroup, toGroup, index }
+  payload: { articleId, fromGroup, toGroup, index }
 });
 
 export const addArticleToGroup = (articleId, toGroup, fromGroup = null) => ({
@@ -25,7 +25,7 @@ export const deleteArticleFromGroup = (articleId, groupId) => ({
   payload: { articleId, groupId }
 });
 
-export const cropArticleImage = (id, cropData) => ({
+export const cropArticleImage = (articleId, cropData) => ({
   type: CROP_IMAGE,
-  payload: { id, cropData }
+  payload: { articleId, cropData }
 });

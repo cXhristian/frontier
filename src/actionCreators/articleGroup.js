@@ -1,18 +1,18 @@
 import { MOVE_ARTICLE_GROUP, DELETE_ARTICLE_GROUP, NEW_ARTICLE_GROUP, TOGGLE_ALIGN } from '../actions';
 
-export const moveArticleGroup = (id, toIndex) => ({
+export const moveArticleGroup = (groupId, toIndex) => ({
   type: MOVE_ARTICLE_GROUP,
-  payload: { id, toIndex }
+  payload: { groupId, toIndex }
 });
 
-export const deleteArticleGroup = (id) => ({
+export const deleteArticleGroup = (groupId) => ({
   type: DELETE_ARTICLE_GROUP,
-  payload: { id }
+  payload: { groupId }
 });
 
-export const newArticleGroup = (id, index, align) => ({
+export const newArticleGroup = (groupId, index, align) => ({
   type: NEW_ARTICLE_GROUP,
-  payload: { id, index, align }
+  payload: { groupId, index, align }
 });
 
 export const toggleAlign = (groupId) => ({

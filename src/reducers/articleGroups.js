@@ -19,7 +19,7 @@ const articleGroup = (state = {}, action) => {
   switch (action.type) {
 
     case MOVE_ARTICLE: {
-      const { id: articleId, index: newIndex, fromGroup, toGroup } = action.payload;
+      const { articleId, index: newIndex, fromGroup, toGroup } = action.payload;
       let { articles } = state;
       if(state.id === fromGroup) {
         const currentIndex = articles.indexOf(articleId);
@@ -73,15 +73,15 @@ const articleGroups = (state = {}, action) => {
   switch(action.type) {
 
     case NEW_ARTICLE_GROUP: {
-        const id = action.payload.id
+        const groupId = action.payload.groupId
         const align = action.payload.align
         const newArticleGroup = {
-            id,
+            id: groupId,
             articles: [],
             align
         }
         return Object.assign({}, state, {
-          [id]: newArticleGroup
+          [groupId]: newArticleGroup
         });
       }
 
@@ -108,7 +108,7 @@ const articleGroups = (state = {}, action) => {
     }
 
     case DELETE_ARTICLE_GROUP: {
-      const deleteId = action.payload.id;
+      const deleteId = action.payload.groupId;
       // Deletes object key
       state = Object.keys(state).reduce((result, key) => {
         if(key !== String(deleteId)) {

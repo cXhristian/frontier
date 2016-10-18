@@ -32,12 +32,12 @@ const articles = (state = {}, action) => {
     case CROP_IMAGE:
     case RESIZE_ARTICLE:
     case EDIT_TITLE: {
-      const { id } = action.payload;
-      if(state[id] === undefined) {
+      const { articleId } = action.payload;
+      if(state[articleId] === undefined) {
         return state;
       }
       return Object.assign({}, state, {
-        [id]: article(state[id], action)
+        [articleId]: article(state[articleId], action)
       });
     }
     default:
