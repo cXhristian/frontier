@@ -3,8 +3,7 @@ import Handlebar from '../components/Handlebar';
 import * as Actions from '../actionCreators';
 import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
-
-const DEFAULT_ALIGNMENT = 'left';
+import { DEFAULT_ALIGNMENT } from '../constants/layout';
 
 class HandlebarContainer extends Component {
   constructor(props) {
