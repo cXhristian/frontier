@@ -6,17 +6,6 @@ import { connect } from 'react-redux';
 
 const DEFAULT_ALIGNMENT = 'left';
 
-const mapDispatchToProps = dispatch => ({
-  actions: bindActionCreators(Actions, dispatch)
-});
-
-const mapStateToProps = (state, props) => {
-    return {
-        groupId: props.groupId,
-        index: state.groupOrder.indexOf(props.groupId)
-    }
-}
-
 class HandlebarContainer extends Component {
   constructor(props) {
     super(props);
@@ -44,5 +33,14 @@ class HandlebarContainer extends Component {
     )
   }
 }
+
+
+const mapDispatchToProps = dispatch => ({
+  actions: bindActionCreators(Actions, dispatch)
+});
+
+const mapStateToProps = (state, props) => ({
+  index: state.groupOrder.indexOf(props.groupId)
+});
 
 export default connect(mapStateToProps, mapDispatchToProps)(HandlebarContainer)
