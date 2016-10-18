@@ -17,7 +17,6 @@ const addToArticles = (articles, index, articleId) => {
 
 const articleGroup = (state = {}, action) => {
   switch (action.type) {
-
     case MOVE_ARTICLE: {
       const { articleId, index: newIndex, fromGroup, toGroup } = action.payload;
       let { articles } = state;
@@ -71,19 +70,18 @@ const articleGroup = (state = {}, action) => {
 
 const articleGroups = (state = {}, action) => {
   switch(action.type) {
-
     case NEW_ARTICLE_GROUP: {
-        const groupId = action.payload.groupId
-        const align = action.payload.align
-        const newArticleGroup = {
-            id: groupId,
-            articles: [],
-            align
-        }
-        return Object.assign({}, state, {
-          [groupId]: newArticleGroup
-        });
+      const groupId = action.payload.groupId
+      const align = action.payload.align
+      const newArticleGroup = {
+        id: groupId,
+        articles: [],
+        align
       }
+      return Object.assign({}, state, {
+        [groupId]: newArticleGroup
+      });
+    }
 
     case MOVE_ARTICLE:
     case ADD_ARTICLE_TO_GROUP: {
