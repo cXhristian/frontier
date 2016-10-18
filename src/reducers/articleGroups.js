@@ -109,8 +109,13 @@ const articleGroups = (state = {}, action) => {
 
     case DELETE_ARTICLE_GROUP: {
       const deleteId = action.payload.id;
-      state = Object.assign({}, state); // Create new object
-      delete state[deleteId]
+      // Deletes object key
+      state = Object.keys(state).reduce((result, key) => {
+        if(key !== String(deleteId)) {
+          result[key] = state[key];
+        }
+        return result
+      }, {});
       return state;
     }
 
