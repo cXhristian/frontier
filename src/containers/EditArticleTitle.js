@@ -9,11 +9,11 @@ import '../css/EditArticleTitle.css';
 class EditArticleTitle extends Component {
   constructor(props) {
     super(props);
+
     this.state = {
-      editing: false,
-      text: props.text,
-      fontSize: props.fontSize
+      editing: false
     };
+
     this.editMode = this.editMode.bind(this);
     this.saveTitle = this.saveTitle.bind(this);
     this.cancelEdit = this.cancelEdit.bind(this);
@@ -22,9 +22,9 @@ class EditArticleTitle extends Component {
   }
 
   editMode() {
+    const { fontSize, text } = this.props;
     this.setState({
-      editing: true,
-      text: this.state.text
+      editing: true, fontSize, text
     });
   }
 
