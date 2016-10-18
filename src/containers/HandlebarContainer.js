@@ -10,8 +10,14 @@ class HandlebarContainer extends Component {
   constructor(props) {
     super(props);
 
+    this.toggleAlign = this.toggleAlign.bind(this);
     this.newArticleGroup = this.newArticleGroup.bind(this);
     this.deleteArticleGroup = this.deleteArticleGroup.bind(this);
+  }
+
+  toggleAlign() {
+    const { actions, groupId } = this.props;
+    actions.toggleAlign(groupId);
   }
 
   deleteArticleGroup() {
@@ -27,6 +33,8 @@ class HandlebarContainer extends Component {
   render(){
     return (
       <Handlebar
+        align={ this.props.align }
+        toggleAlign={ this.toggleAlign }
         deleteArticleGroup={ this.deleteArticleGroup }
         newArticleGroup={ this.newArticleGroup }
       />

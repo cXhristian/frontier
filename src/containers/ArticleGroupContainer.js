@@ -128,7 +128,7 @@ class ArticleGroupContainer extends Component {
     return connectArticleGroupContentDropTarget(
     connectArticleGroupDropTarget(connectArticleDropTarget(connectDragPreview(
       <div className={ groupClass }>
-        { connectDragSource(<div><HandlebarContainer groupId={ this.props.groupId }/></div>) }
+        { connectDragSource(<div><HandlebarContainer align={ this.props.align } groupId={ this.props.groupId }/></div>) }
         <ArticleGroup { ...this.props } />
       </div>
     ))));

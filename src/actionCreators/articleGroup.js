@@ -1,4 +1,4 @@
-import { MOVE_ARTICLE_GROUP, DELETE_ARTICLE_GROUP, NEW_ARTICLE_GROUP } from '../actions';
+import { MOVE_ARTICLE_GROUP, DELETE_ARTICLE_GROUP, NEW_ARTICLE_GROUP, TOGGLE_ALIGN } from '../actions';
 
 export const moveArticleGroup = (id, toIndex) => {
   return {
@@ -28,3 +28,8 @@ export const newArticleGroup = (id, index, align) => {
         }
     }
 }
+
+export const toggleAlign = (groupId) => ({
+  type: TOGGLE_ALIGN,
+  payload: { groupId }
+});

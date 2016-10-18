@@ -1,4 +1,4 @@
-import { MOVE_ARTICLE, ADD_ARTICLE_TO_GROUP, NEW_ARTICLE_GROUP, DELETE_ARTICLE_GROUP, DELETE_ARTICLE_FROM_GROUP } from '../actions';
+import { MOVE_ARTICLE, ADD_ARTICLE_TO_GROUP, NEW_ARTICLE_GROUP, DELETE_ARTICLE_GROUP, DELETE_ARTICLE_FROM_GROUP, TOGGLE_ALIGN } from '../actions';
 
 const removeFromArticles = (articles, index) => {
   return [
@@ -58,6 +58,12 @@ const articleGroup = (state = {}, action) => {
       });
     }
 
+    case TOGGLE_ALIGN: {
+      return Object.assign({}, state, {
+        align: state.align === 'left' ? 'right' : 'left'
+      });
+    }
+
     default:
       return state;
   }
@@ -93,6 +99,7 @@ const articleGroups = (state = {}, action) => {
       });
     }
 
+    case TOGGLE_ALIGN:
     case DELETE_ARTICLE_FROM_GROUP: {
       const { groupId } = action.payload;
       return Object.assign({}, state, {
