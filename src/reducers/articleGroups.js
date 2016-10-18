@@ -1,19 +1,5 @@
 import { MOVE_ARTICLE, ADD_ARTICLE_TO_GROUP, NEW_ARTICLE_GROUP, DELETE_ARTICLE_GROUP, DELETE_ARTICLE_FROM_GROUP, TOGGLE_ALIGN } from '../actions';
-
-const removeFromArticles = (articles, index) => {
-  return [
-    ...articles.slice(0, index),
-    ...articles.slice(index + 1)
-  ];
-};
-
-const addToArticles = (articles, index, articleId) => {
-  return [
-    ...articles.slice(0, index),
-    articleId,
-    ...articles.slice(index)
-  ];
-}
+import { addToArray, removeFromArray } from '../utils';
 
 const articleGroup = (state = {}, action) => {
   switch (action.type) {
@@ -22,10 +8,10 @@ const articleGroup = (state = {}, action) => {
       let { articles } = state;
       if(state.id === fromGroup) {
         const currentIndex = articles.indexOf(articleId);
-        articles = removeFromArticles(articles, currentIndex);
+        articles = removeFromArray(articles, currentIndex);
       }
       if(state.id === toGroup) {
-        articles = addToArticles(articles, newIndex, articleId);
+        articles = addToArray(articles, newIndex, articleId);
       }
       state = Object.assign({}, state, {
         articles: articles
@@ -39,10 +25,10 @@ const articleGroup = (state = {}, action) => {
       let { articles } = state;
       if(state.id === fromGroup) {
         const currentIndex = articles.indexOf(articleId);
-        articles = removeFromArticles(articles, currentIndex);
+        articles = removeFromArray(articles, currentIndex);
       }
       if(state.id === toGroup) {
-        articles = addToArticles(articles, articles.length, articleId);
+        articles = addToArray(articles, articles.length, articleId);
       }
       state = Object.assign({}, state, {
         articles: articles
@@ -53,7 +39,7 @@ const articleGroup = (state = {}, action) => {
     case DELETE_ARTICLE_FROM_GROUP: {
       const articleIndex = state.articles.indexOf(action.payload.articleId);
       return Object.assign({}, state, {
-        articles: removeFromArticles(state.articles, articleIndex)
+        articles: removeFromArray(state.articles, articleIndex)
       });
     }
 
